@@ -1,6 +1,18 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.template import loader
+
+from .models import Skillers
 
 
 def home(request):
-    return HttpResponse("<h1>Welcome to the Little PineApple</h1><br/><p>Harsh's App</p>")
+    skillers_data = Skillers.objects.all()
+    template = loader.get_template('index.html')
+    context = {
+        'skillers': skillers_data,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def about(request):
+    return render(request, 'about.html')
