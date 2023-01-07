@@ -10,4 +10,5 @@ urlpatterns = [
     path('book/', views.about, name="book"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('addskill/', views.addSkill, name="addskill"),
+    path('register/', views.register, name="register")
 ]

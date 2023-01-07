@@ -6,6 +6,27 @@ body {
   margin-right: 5%;
 }
 
+.header {
+  display: flex;
+}
+
+.headerLogo {
+  font-size: 500px;
+}
+
+.headerMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
+}
+
+.headerLogo {
+  font-size: large;
+}
+
 h1,
 h2,
 h3,
