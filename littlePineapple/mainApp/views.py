@@ -5,7 +5,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 
+from rest_framework import viewsets
+from .serializers import TodoSerializer
+
 from .models import Skillers
+
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+    serializer_class = TodoSerializer
+    queryset = Skillers.objects.all()
 
 
 def home(request):
