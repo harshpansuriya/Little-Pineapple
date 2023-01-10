@@ -5,3 +5,4 @@ class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skillers
         fields = ('id', 'first_name', 'last_name', 'email', 'special_skill', 'skill_decs', 'tags')
+

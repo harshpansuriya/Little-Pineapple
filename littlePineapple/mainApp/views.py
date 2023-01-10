@@ -27,6 +27,7 @@ def home(request):
 
 
 def register(request):
+
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -58,6 +59,8 @@ def register(request):
 
 @login_required
 def addSkill(request):
+
+
 
     return render(request, 'addskill.html')
 

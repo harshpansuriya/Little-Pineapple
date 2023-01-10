@@ -5,5 +5,9 @@
 <div>
     <li>User: {{ user.get_username }}</li>
 
+    <form action="post" action = "{% url 'addskill' %}">
+        {% csrf_token %}
+        <input type="text" name="username" id="username"/>
+    </form>
 </div>
 {% endblock %}
