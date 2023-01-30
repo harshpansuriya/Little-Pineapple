@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'indexStyle.css' %}">
+    <div class="indexContainer">
+        {#Main Section#}
+        <div class="mainSecContainer">
+            <div>
+                <h1>Welcome User!</h1>
+                <p>What are we offer!</p>
+            </div>
+            <div class="mainSecSubContainer">
+                <div class="mainSecBox">
+                    <h1>Complete your work by hiring people what you want!</h1>
+                </div>
+                <div>
+                    <div class="mainSecBox">
+                        <h1>Complete others work using your basic skills!</h1>
+                    </div>
+                    <div class="getStartButton">
+                        <p>Get Started</p>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#Trending Section#}
+
+        <div class="trendingSecContainer">
+            <div>
+                <h1>Trending Skills Right now...</h1>
+            </div>
+            <div class="trendingBoxContainer">
+                {% for user in user.skiller_set.all %}
+                    <div class="trendingBox">
+                        <h4>{{ user.email }}</h4>
+                        <p>{{ user.skilltitle }}</p>
+                        <p>Outline</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h1>Even Trending Project We've too...</h1>
+            </div>
+            <div class="trendingBoxContainer">
+                {% for i in '012345'|make_list %}
+                    <div class="trendingBox">
+                        <h4>Trending Project {{ i }}</h4>
+                        <p>Tag</p>
+                        <p>Outline</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+{#            QuoteSec#}
+
+            <div class="quoteSecContainer">
+                <h2>It's not over when you loose, it's over when you quit.<br/>-Prince Vegeta </h2>
+            </div>
+
+{#            StartNowSec#}
+
+            <div>
+                <p class="startNowBtn">Start Now!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

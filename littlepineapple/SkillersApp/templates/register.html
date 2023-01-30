@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Register</h1>
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter your Username: " id="userName" required><br/>
+            <input type="email" placeholder="Enter your Email: " id="enail" required><br/>
+            <input type="password" placeholder="Enter your Password: " id="password" required><br/>
+            <input type="password" placeholder="Confirm your Password: " id="password2" required><br/>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>If you already have an account, <a href="/login">login</a> instead.</p>
+    </div>
+
+
+{% endblock %}

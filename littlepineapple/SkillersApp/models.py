@@ -15,24 +15,21 @@ class User(models.Model):
         return self.username
 
 class Skiller(models.Model):
-    userId = models.ForeignKey("SkillersApp.User", verbose_name="pk", on_delete=models.CASCADE)
-
+    userId = models.ForeignKey(User, verbose_name="pk", on_delete=models.CASCADE)
 
 class SkliierPost(models.Model):
-    skillerID = models.ForeignKey("SkillersApp.Skiller", verbose_name="pk", on_delete=models.CASCADE)
+    skillerID = models.ForeignKey(Skiller, verbose_name="pk", on_delete=models.CASCADE)
     SkillTitle = models.CharField(verbose_name="Title",max_length=50)
-    SkillImage = models.ImageField(verbose_name="Skill Image", upload_to="/upload/skillImages",null=True)
+    SkillImage = models.ImageField(verbose_name="Skill Image", upload_to="upload/skillImages",null=True)
     SkillDescription = models.CharField(verbose_name="Description", max_length=1200)
-    SkillerWages = models.FloatField(verbose_name="Avg Wages Rate",null=True)  
+    SkillerWages = models.FloatField(verbose_name="Avg Wages Rate",null=True)
     skillerContact = models.CharField(max_length=12,verbose_name="Contact number",null=True)
     class Meta:
         verbose_name = ("skliierpost")
         verbose_name_plural = ("skliierposts")
 
     def __str__(self):
-        return self.name
-
-
+        return self.SkillTitle
 
 class ClientModel(models.Model):
     projectStatusLst = {
@@ -41,16 +38,13 @@ class ClientModel(models.Model):
         (2,"pending"),
         (3,"completed")
     }
-    userId = models.ForeignKey("SkillersApp.User", verbose_name="pk", on_delete=models.CASCADE)
+    userId = models.ForeignKey(User, verbose_name="pk", on_delete=models.CASCADE)
     projectStatus = models.PositiveSmallIntegerField(default=0,choices=projectStatusLst)
     projectBudget = models.FloatField(verbose_name="Project Budget",default=0)
-    
+
     class Meta:
         verbose_name = ("clientmodel")
         verbose_name_plural = ("clientmodels")
-
-    def __str__(self):
-        return self.name
 
 class Tags(models.Model):
     tagName = models.CharField(verbose_name="Tag",max_length=20)
@@ -60,12 +54,11 @@ class Tags(models.Model):
         verbose_name_plural = ("tagss")
 
     def __str__(self):
-        return self.name
-
+        return self.tagName
 
 class ProjectRequestModel(models.Model):
 	projectId = models.AutoField(primary_key=True)
-	clientId = models.ForeignKey("SkillerApp.ClientModel", verbose_name="Client ID", on_delete=models.CASCADE)
-	skillerId = models.ForeignKey("SkillerApp.Skiller", verbose_name="Skiller ID", on_delete=models.CASCADE)
+	clientId = models.ForeignKey("ClientModel", verbose_name="Client ID", on_delete=models.CASCADE)
+	skillerId = models.ForeignKey("Skiller", verbose_name="Skiller ID", on_delete=models.CASCADE)
 	projectDesc = models.CharField(verbose_name="Project desvription", max_length=1200)
-	tagModel = models.ForeignKey("SkillerApp.Tags", verbose_name="Tags", on_delete=models.CASCADE)
+	tagModel = models.ForeignKey("Tags", verbose_name="Tags", on_delete=models.CASCADE)

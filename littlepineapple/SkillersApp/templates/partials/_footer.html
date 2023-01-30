@@ -1,0 +1,31 @@
+{% load static %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'footerStyle.css' %}">
+
+<div class="footerContainer">
+    <div class="footerSubContainer1">
+        <div>
+            <h2>Some more links</h2>
+            <div class="footerMenuContainer">
+                <div>
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>Career</p>
+                </div>
+                <div>
+                    <p>Privacy & Policy</p>
+                    <p>Report</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 class="footerLogo">Little Pineapple</h1>
+        </div>
+    </div>
+    <p class="copyrightText">© {% now 'Y' %} All rights reserved.</p>
+</div>

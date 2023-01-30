@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>About</h1>
+
+    {% for user in user %}
+
+            <p>{{ user.email }}</p>
+
+
+        {% for client in user.clientmodel_set.all %}
+
+            <p>{{ client.projectStatus }}</p>
+            <p>{{ client.projectBudget }}</p>
+
+        {% endfor %}
+
+    {% endfor %}
+
+
+
+{% endblock %}

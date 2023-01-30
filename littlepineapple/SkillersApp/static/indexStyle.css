@@ -1,0 +1,83 @@
+.indexContainer {
+    padding: 0 5rem;
+    border-bottom: solid;
+}
+
+.mainSecSubContainer {
+    display: flex;
+    gap: 3rem;
+}
+
+.mainSecBox {
+    border: solid;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.getStartButton {
+    border: solid;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    place-items: center;
+}
+
+.arrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+.arrow-right {
+  transform: rotate(45deg);
+}
+
+
+.menuContainer {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    place-items: center;
+}
+
+.registerButton {
+    border: solid;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.trendingBoxContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.trendingBox {
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    border: solid;
+    cursor: pointer;
+}
+
+.trendingBox:hover {
+    color: white;
+    background: black;
+}
+
+.quoteSecContainer {
+    border: dashed;
+    padding: 10px;
+    margin: 10px;
+    text-align: right;
+}
+
+.startNowBtn {
+    padding: 10px;
+    border: solid;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
